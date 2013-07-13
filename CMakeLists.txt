@@ -6,3 +6,4 @@ find_package(XCB REQUIRED)
 find_package(Qt5Widgets REQUIRED)
 
 add_subdirectory(src)
+

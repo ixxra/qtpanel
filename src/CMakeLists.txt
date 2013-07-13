@@ -49,3 +49,5 @@ target_link_libraries(qtpanel ${XCB_XCB_LIBRARIES} ${XCB_ICCCM_LIBRARIES})
 
 # For <qpa/qplatformnativeinterface.h>.
 set_property(TARGET qtpanel APPEND PROPERTY INCLUDE_DIRECTORIES ${Qt5Gui_PRIVATE_INCLUDE_DIRS})
+
+install(TARGETS qtpanel RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
