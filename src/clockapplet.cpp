@@ -39,7 +39,7 @@ void ClockApplet::layoutChanged()
 void ClockApplet::updateContent()
 {
 	QDateTime dateTimeNow = QDateTime::currentDateTime();
-	m_text = dateTimeNow.toString();
+	m_text = dateTimeNow.toString("ddd MMM dd hh:mm yyyy");
 	m_textItem->setText(m_text);
 	update();
 	scheduleUpdate();
@@ -52,7 +52,8 @@ QSize ClockApplet::desiredSize()
 
 void ClockApplet::scheduleUpdate()
 {
-	m_timer->setInterval(1000 - QDateTime::currentDateTime().time().msec());
+    //m_timer->setInterval(30000 - QDateTime::currentDateTime().time().msec());
+    m_timer->setInterval(30000);
 	m_timer->start();
 }
 
