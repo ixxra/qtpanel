@@ -46,8 +46,10 @@ void BatteryApplet::updateContent()
 
     if (battery_status == Battery::CHARGING)
         status = "Charging";
-    else
+    else if (battery_status == Battery::DISCHARGING)
         status = "Discharging";
+    else
+        status = "(---)";
 
     m_text = QString("Battery: %1% (%2)").arg(cap, 0, 'f', 0).arg(status);
     m_textItem->setText(m_text);

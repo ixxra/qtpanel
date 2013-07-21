@@ -11,6 +11,10 @@ int Battery::current_energy()
     int energy_now = 0;
 
     FILE* f = fopen(ENERGY_NOW, "r");
+
+    if (f == NULL)
+        return 0;
+
     fscanf(f, "%d", &energy_now);
     fclose(f);
 
@@ -22,6 +26,10 @@ int Battery::total_capacity()
     int energy_full = 0;
 
     FILE* f = fopen(ENERGY_FULL, "r");
+
+    if (f == NULL)
+        return -1;
+
     fscanf(f, "%d", &energy_full);
     fclose(f);
 
@@ -32,6 +40,10 @@ Battery::Status Battery::status()
 {
     char b_status[16];
     FILE* f = fopen(Battery::STATUS, "r");
+
+    if (f == NULL)
+        return Battery::UNKNOWN;
+
     fscanf(f, "%s", b_status);
     fclose(f);
 

@@ -8,7 +8,8 @@ class Battery {
 public:
     enum Status {
         CHARGING,
-        DISCHARGING
+        DISCHARGING,
+        UNKNOWN
     };
 
     static int current_energy();
